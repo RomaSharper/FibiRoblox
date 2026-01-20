@@ -17,6 +17,73 @@ const state = {
 };
 
 /* =========================
+   Empty State
+========================= */
+
+const emptyRow = document.createElement('tr');
+emptyRow.className = 'table-empty-row';
+emptyRow.innerHTML = `
+  <td colspan="3">
+    <div class="table-empty-card">
+      <i class="fa-solid fa-filter-circle-xmark"></i>
+
+      <div class="table-empty-content">
+        <h3>Ничего не найдено</h3>
+        <p>Попробуй изменить фильтры или сбросить их</p>
+      </div>
+
+      <button class="btn cancel table-empty-reset">
+        Сбросить фильтры
+      </button>
+    </div>
+  </td>
+`;
+
+emptyRow.querySelector('.table-empty-reset').addEventListener('click', () => {
+    state.filters = { index: '', name: '', rating: '' };
+
+    document.querySelectorAll('.table-filter').forEach(i => {
+        i.value = '';
+    });
+
+    render();
+});
+
+/* =========================
+   Deep-link
+========================= */
+
+function applyQueryFilters() {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has('id')) {
+        state.filters.index = params.get('id').toLowerCase();
+    }
+
+    if (params.has('name')) {
+        state.filters.name = params.get('name').toLowerCase();
+    }
+
+    if (params.has('rating')) {
+        state.filters.rating = params.get('rating').toLowerCase();
+    }
+}
+
+function updateQuery() {
+    const params = new URLSearchParams();
+
+    if (state.filters.index) params.set('id', state.filters.index);
+    if (state.filters.name) params.set('name', state.filters.name);
+    if (state.filters.rating) params.set('rating', state.filters.rating);
+
+    const newUrl =
+        window.location.pathname +
+        (params.toString() ? `?${params.toString()}` : '');
+
+    history.replaceState(null, '', newUrl);
+}
+
+/* =========================
    Tooltip
 ========================= */
 
@@ -77,8 +144,13 @@ function render() {
         });
     }
 
+    if (rows.length === 0) {
+        tableBody.appendChild(emptyRow);
+        return;
+    }
+
     const frag = document.createDocumentFragment();
-    rows.forEach((p, i) => frag.appendChild(createRow(p, p.id)));
+    rows.forEach(p => frag.appendChild(createRow(p, p.index)));
     tableBody.appendChild(frag);
 }
 
@@ -127,8 +199,14 @@ function setupHeader() {
         input.className = 'table-filter';
         input.placeholder = 'Фильтр';
 
+        // 🔹 применяем значение из query
+        if (state.filters[key]) {
+            input.value = state.filters[key];
+        }
+
         input.addEventListener('input', () => {
             state.filters[key] = input.value.toLowerCase();
+            updateQuery();
             render();
         });
 
@@ -161,6 +239,7 @@ export async function loadTable() {
         ...p
     }));
 
+    applyQueryFilters();
     setupHeader();
     initTooltips();
     render();

@@ -68,7 +68,7 @@ th.sortable {
 
 th.sortable::after {
   opacity: 0.4;
-  content: '⇅';
+  content: "⇅";
   margin-left: 6px;
   color: var(--text);
   font-size: 0.75rem;
@@ -96,6 +96,55 @@ tbody tr:hover {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+/* =========================
+   Table empty screen (row)
+========================= */
+
+.table-empty-row td {
+  padding: 2.5rem 1.5rem;
+  border-bottom: none;
+}
+
+.table-empty-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+
+  background: var(--accent-soft);
+  border: 1px dashed var(--border);
+}
+
+.table-empty-card i {
+  font-size: 1.8rem;
+  color: var(--text-sec);
+  opacity: 0.8;
+}
+
+.table-empty-content {
+  text-align: left;
+}
+
+.table-empty-content h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.table-empty-content p {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-sec);
+}
+
+.table-empty-reset {
+  margin-left: 1rem;
 }
 
 @media (max-width: 768px) {
