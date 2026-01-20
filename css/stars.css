@@ -1,0 +1,13 @@
+.stars {
+  white-space: nowrap;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.star {
+  color: var(--star-empty);
+}
+
+.star.filled {
+  color: var(--star-fill);
+}

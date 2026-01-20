@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мои Roblox плейсы • 39/40 — Fibi_ch</title>
+  <link rel="stylesheet" href="css/button.css" />
+  <link rel="stylesheet" href="css/link.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/spinner.css" />
+  <link rel="stylesheet" href="css/stars.css" />
+  <link rel="stylesheet" href="css/table.css" />
+  <link rel="stylesheet" href="css/tooltip.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <h3>Переход на внешний сайт</h3>
+      <p id="modalText"></p>
+
+      <div class="modal-actions">
+        <button class="btn cancel" id="modalCancel" type="button">
+          Отмена
+        </button>
+
+        <button class="btn confirm" id="modalConfirm" type="button">
+          Перейти
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+        <span>Тема</span>
+      </div>
+
+      <h1>Мои Roblox плейсы</h1>
+      <div class="progress">Посещено: 39 / 40</div>
+    </header>
+
+    <div class="table-wrapper">
+      <div class="spinner" id="spinner" aria-hidden="true"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Плейс</th>
+            <th>Рейтинг</th>
+          </tr>
+        </thead>
+        <tbody id="placesTable"></tbody>
+      </table>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+
+    <footer>
+      <a class="link-btn" href="https://github.com/RomaSharper">@RomaSharper</a> • HTML/CSS/JS • Tokyo • 2026
+    </footer>
+  </div>
+</body>
+
+</html>
