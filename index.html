@@ -48,12 +48,14 @@
     </header>
 
     <div class="table-wrapper">
+      <div class="table-filters-wrapper" id="filtersWrapper"></div>
+
       <table>
         <thead>
           <tr>
-            <th data-sort="index">#</th>
-            <th data-sort="name">Плейс</th>
-            <th data-sort="rating">Рейтинг</th>
+            <th data-sort="index" data-tooltip="Сортировка по id">#</th>
+            <th data-sort="place" data-tooltip="Сортировка по алфавиту">Плейс</th>
+            <th data-sort="rating" data-tooltip="Сортировка по рейтингу">Рейтинг</th>
           </tr>
         </thead>
         <tbody id="placesTable"></tbody>

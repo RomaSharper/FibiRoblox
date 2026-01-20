@@ -1,7 +1,8 @@
 .btn {
+  text-wrap: wrap;
   appearance: none;
-  border: 1px solid var(--border);
   background: transparent;
+  border: 1px solid var(--border);
 
   padding: 0.55rem 1.15rem;
   border-radius: 999px;
