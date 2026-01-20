@@ -45,7 +45,6 @@ function initTooltips() {
         const cell = e.target.closest('.stars-cell');
         if (!cell || cell !== activeTarget) return;
 
-        // если ушли внутрь этой же ячейки — не закрываем
         if (cell.contains(e.relatedTarget)) return;
 
         clearTimeout(tooltipTimeout);
