@@ -1,6 +1,3 @@
-/* =====================================================
-   RESET
-===================================================== */
 *,
 *::before,
 *::after {
@@ -42,7 +39,7 @@ body {
   --link: #0f1419;
 
   /* hover */
-  --link-hover: #b48b3c;             /* благородное золото */
+  --link-hover: #b48b3c;
   --link-hover-soft: rgba(180, 139, 60, 0.18);
 
   --link-underline: rgba(180, 139, 60, 0.45);
@@ -71,7 +68,6 @@ body.black {
 
   --link: #f5f5f7;
 
-  /* hover */
   --link-hover: #f0c36a;
   --link-hover-soft: rgba(240, 195, 106, 0.22);
 

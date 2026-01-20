@@ -97,7 +97,6 @@ tbody tr:hover {
     font-size: 0.95rem;
   }
 
-  /* индекс */
   td:first-child {
     grid-column: 1 / 2;
     font-size: 0.8rem;
@@ -105,14 +104,12 @@ tbody tr:hover {
     opacity: 0.65;
   }
 
-  /* название */
   td.place-name {
     grid-column: 1 / -1;
     font-weight: 500;
     font-size: 1rem;
   }
 
-  /* звёзды */
   td.stars-cell {
     grid-column: 2 / 3;
     align-self: center;

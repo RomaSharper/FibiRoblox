@@ -17,7 +17,6 @@ function initTooltips() {
         const cell = e.target.closest('.stars-cell');
         if (!cell) return;
 
-        // если мы уже внутри этой же ячейки — ничего не делаем
         if (activeTarget === cell) return;
 
         const stars = cell.querySelector('.stars[data-tooltip]');
