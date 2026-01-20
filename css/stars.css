@@ -4,10 +4,10 @@
   letter-spacing: 1px;
 }
 
-.star {
+.stars i {
   color: var(--star-empty);
 }
 
-.star.filled {
+.stars i.fa-solid {
   color: var(--star-fill);
 }

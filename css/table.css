@@ -8,6 +8,7 @@
 table {
   width: 100%;
   cursor: default;
+  table-layout: fixed;
   border-collapse: collapse;
 }
 
@@ -17,6 +18,14 @@ td {
   border-bottom: 1px solid var(--border);
   text-align: left;
   font-size: 0.95rem;
+}
+
+th:first-child {
+  width: 120px;
+}
+
+th:last-child {
+  width: 200px;
 }
 
 td.place-name,
@@ -50,12 +59,43 @@ th {
   z-index: 2;
 }
 
+th.sortable {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+th.sortable::after {
+  opacity: 0.4;
+  content: '⇅';
+  margin-left: 6px;
+  color: var(--text);
+  font-size: 0.75rem;
+}
+
 tbody tr {
   transition: background-color 0.12s ease;
 }
 
 tbody tr:hover {
   background: var(--accent-soft);
+}
+
+.table-filter {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.table-filter:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
 }
 
 @media (max-width: 768px) {
