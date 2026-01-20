@@ -67,10 +67,16 @@ function applyQueryFilters() {
 }
 
 function updateQuery() {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(window.location.search);
+
     filterKeys.forEach(({ key }) => {
-        if (state.filters[key]) params.set(key, state.filters[key]);
+        if (state.filters[key]) {
+            params.set(key, state.filters[key]);
+        } else {
+            params.delete(key);
+        }
     });
+
     const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : '');
     history.replaceState(null, '', newUrl);
 }
@@ -98,6 +104,7 @@ emptyRow.querySelector('.table-empty-reset').addEventListener('click', () => {
     filterKeys.forEach(({ key }) => {
         state.filters[key] = '';
         filterInputs[key].value = '';
+        updateQuery();
     });
     render();
 });

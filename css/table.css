@@ -138,14 +138,14 @@ tbody tr:last-child td {
 }
 
 .table-filter {
-  padding: 0.5rem 0.75rem;
   border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--bg);
   color: var(--text);
   font-size: 0.85rem;
-  font-family: "Grok", sans-serif;
+  background: var(--bg);
+  padding: 0.5rem 0.75rem;
   transition: all 0.15s ease;
+  border: 1px solid var(--border);
+  font-family: "Grok", sans-serif;
 }
 
 .table-filter:focus {
